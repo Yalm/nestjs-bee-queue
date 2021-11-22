@@ -8,7 +8,7 @@ export interface ProcessOptions {
 }
 
 export function Process(): MethodDecorator;
-export function Process(name: string): MethodDecorator;
+export function Process(id: string): MethodDecorator;
 export function Process(options: ProcessOptions): MethodDecorator;
 export function Process(
   nameOrOptions?: string | ProcessOptions,
