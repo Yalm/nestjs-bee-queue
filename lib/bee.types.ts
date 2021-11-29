@@ -1,21 +1,9 @@
 import { DoneCallback, Job } from "bee-queue";
-import {
-  BeeQueueAdvancedProcessor,
-  BeeQueueAdvancedSeparateProcessor,
-} from "./interfaces/bee.interfaces";
-
-export type BeeQueueProcessor =
-  | BeeQueueProcessorCallback
-  | BeeQueueAdvancedProcessor
-  | BeeQueueSeparateProcessor
-  | BeeQueueAdvancedSeparateProcessor;
 
 export type BeeQueueProcessorCallback<T = unknown> = (
   job: Job<T>,
   done?: DoneCallback<T>
 ) => void;
-
-export type BeeQueueSeparateProcessor = string;
 
 export type BeeQueueEvent =
   | "ready"

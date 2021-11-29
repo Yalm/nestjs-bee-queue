@@ -110,7 +110,7 @@ export class BeeExplorer implements OnModuleInit {
     isRequestScoped: boolean,
     options?: ProcessOptions,
   ) {
-    let args: unknown[] = [options?.id, options?.concurrency];
+    let args: unknown[] = [options?.concurrency];
 
     if (isRequestScoped) {
       const callback: ProcessCallbackFunction<unknown, unknown> = async (
@@ -160,7 +160,7 @@ export class BeeExplorer implements OnModuleInit {
         async (jobOrJobId: BeeQueue.Job<unknown> | string, ...args: unknown[]) => {
           const job =
             typeof jobOrJobId === 'string'
-              ? (await queue.getJob(jobOrJobId)) || { name: false, id: false }
+              ? (await queue.getJob(jobOrJobId)) || { id: false }
               : jobOrJobId;
 
           if (job.id === options.id) {
